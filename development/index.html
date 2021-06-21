@@ -9,10 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
           rel="stylesheet">
-    <!--    Style -->
-    <link rel="stylesheet" href="./css/main.css"/>
     <!--    Font Awesome-->
     <script src="https://kit.fontawesome.com/b282f36c60.js" crossorigin="anonymous"></script>
+    <!--    Flickity - carousel-->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+    <!--    Style -->
+    <link rel="stylesheet" href="./css/main.css"/>
 </head>
 <body>
 <header>
@@ -27,8 +30,38 @@
     </nav>
 </header>
 <main>
-    <section>
-        <!-- carousel -->
+    <section id="carousel">
+        <div class="carousell__cell">
+            <h2>Lorem Ipsum</h2>
+            <p>Aenean porttitor justo eu est rutrum, vel bibendum sem viverra. Etiam placerat bibendum libero, sed
+                tincidunt purus egestas ut. Fusce porta auctor aliquam. Nulla posuere libero et facilisis dapibus.
+                Phasellus condimentum ultricies lectus, vitae aliquet neque vehicula a. Donec sit amet pharetra arcu.
+                Nam luctus consectetur massa, eu auctor erat sollicitudin sed. Donec ullamcorper lobortis diam, ac
+                ornare libero viverra vitae. Curabitur vitae tempor orci. Donec vitae nisl gravida, gravida enim id,
+                efficitur erat. Cras nunc magna, sodales id ullamcorper nec, tristique sed erat. Integer sagittis neque
+                id porttitor rutrum. Etiam et rutrum justo. Mauris et malesuada nulla. Etiam malesuada est non cursus
+                laoreet.</p>
+        </div>
+        <div class="carousell__cell">
+            <h2>Neque porro quisquam</h2>
+            <p>Ut et dolor convallis, pellentesque nisi non, semper lorem. Nam in cursus metus, eu lobortis tortor.
+                Proin scelerisque leo malesuada blandit scelerisque. Interdum et malesuada fames ac ante ipsum primis in
+                faucibus. Nunc mauris nisl, vulputate a congue id, semper sit amet eros. Quisque sagittis tellus mauris,
+                a tincidunt sem malesuada a. Curabitur lacinia erat nec mollis luctus. Nullam lobortis odio sapien.
+                Proin commodo, turpis id vestibulum facilisis, arcu lectus ultricies est, ac consectetur erat massa a
+                tortor. Fusce pharetra pretium consectetur.</p></div>
+        <div class="carousell__cell">
+            <h2>Etiam quis libero ultricies</h2>
+            <p>Maecenas sollicitudin ex felis, sed dapibus leo aliquam eget. Nullam dictum quis lorem dictum tempor.
+                Nulla vestibulum consectetur mi, nec pellentesque nisl venenatis nec. Donec finibus neque ut
+                pellentesque accumsan. Fusce non est rutrum, molestie mauris id, fringilla arcu. Donec feugiat gravida
+                porttitor. Curabitur sit amet elit sapien. Morbi in iaculis eros. Cras fringilla nunc id leo convallis,
+                nec sollicitudin tortor pharetra. Suspendisse nisi nibh, aliquam gravida purus vitae, aliquet
+                condimentum leo. Nam tincidunt, mi eget aliquam laoreet, sem quam placerat risus, ut aliquet tortor
+                ligula et mauris. Donec tortor ipsum, porta ac libero at, tempus facilisis ante. Donec pharetra urna
+                ipsum, ullamcorper pulvinar erat eleifend sit amet. Etiam quis libero ultricies, malesuada leo porta,
+                luctus sapien. Nullam ut accumsan risus, vitae imperdiet augue.</p>
+        </div>
     </section>
     <section>
         <!-- CTA + button -->
@@ -49,7 +82,7 @@
 <footer>
     <!-- copyright -->
 </footer>
-
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="./js/index.js"></script>
 </body>
 </html>

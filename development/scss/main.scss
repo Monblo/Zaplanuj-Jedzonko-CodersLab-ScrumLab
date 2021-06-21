@@ -7,8 +7,6 @@
 @import "settings/colors";
 @import "settings/fonts";
 @import "settings/mixins";
+@import "elements/general";
 @import "elements/header";
-
-body{
-  background-color: #FFFFFA;
-}
+@import "elements/carousel";
