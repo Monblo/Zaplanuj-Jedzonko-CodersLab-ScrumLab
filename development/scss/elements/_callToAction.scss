@@ -1,0 +1,33 @@
+.call__cell {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $color-header;
+  color: $color-background;
+  padding: 2.5rem 0;
+
+  .call__text {
+    max-width: 25rem;
+
+    h3 {
+      font-size: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
+
+  .call__button{
+    background-color: $color-accent;
+    border: none;
+    color: $color-background;
+    padding: 0.625rem 1.75rem;
+
+    a{
+      text-decoration: none;
+      color: $color-background;
+    }
+  }
+}
