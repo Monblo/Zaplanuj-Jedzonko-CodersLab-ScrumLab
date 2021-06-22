@@ -1,0 +1,28 @@
+.widget__add{
+  display: flex;
+  background-color: $color-background;
+  position: absolute;
+  left: 230px;
+  top: 130px;
+}
+
+.widget__double{
+  width: 200px;
+  text-align: center;
+  border: 2px dotted $color-success;
+  padding: 40px 0;
+  color: $color-success;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  p{
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.widget__plan{
+  margin-left: 15px;
+}
