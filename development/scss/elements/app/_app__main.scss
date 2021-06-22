@@ -1,0 +1,46 @@
+.app__main {
+  height: calc(100vh - 9rem);
+  display: flex;
+  .app__menu {
+    width: 15%;
+    background-color: $color-nav;
+    li {
+      padding: 2rem;
+      position: relative;
+      a {
+        text-decoration: none;
+        color: $color-background;
+        transition: .4s;
+        font-size: 2rem;
+      }
+      &:hover::before {
+        position: absolute;
+        left: .1rem;
+        top: 0;
+        height: 100%;
+        content: '';
+        border-left: 4px solid $color-accent;
+      }
+      &:hover::after {
+        font-size: 2.5rem;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: $color-accent;
+        content: '\f105';
+      }
+    }
+  }
+  .app__desktop {
+    width: 85%;
+    background-image: url("../assets/background.png");
+  }
+}
