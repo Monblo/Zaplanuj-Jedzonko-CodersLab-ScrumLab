@@ -42,5 +42,26 @@
   .app__desktop {
     width: 85%;
     background-image: url("../assets/background.png");
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    grid-gap: .5rem;
+    padding: .5rem;
+    grid-template-areas:
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "..............."
+  "...............";
   }
 }
