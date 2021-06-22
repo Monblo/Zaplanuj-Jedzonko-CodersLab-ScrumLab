@@ -1,5 +1,6 @@
 .app__widget {
   display: inline-block;
+  grid-area: widget;
   .app__widget--message {
     position: relative;
     background-color: $color-background;

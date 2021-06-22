@@ -1,10 +1,13 @@
-const hideItem = (selectorsList) => {
-    const addListener = (selector) => {
-        const clickTarget = document.querySelector(`[data-id=${selector}]`);
-        const toHide = document.getElementById(selector);
-        clickTarget.addEventListener('click', e => toHide.classList.add('hidden'));
+const hideItems = ["info", "exclamation", "success"]; //list of closing elements
+
+class ItemToHide {
+    constructor(id) {
+        this.clickTarget = document.getElementById(id);
     }
-    selectorsList.forEach(e => addListener(e));
+    addListener() { //after click parent of element is hidden
+        this.clickTarget.addEventListener('click', (e) => e.target.parentElement.classList.add('hidden'));
+    }
 }
 
-hideItem(["info", "exclamation", "success"]);
+//construct elements to hide, then add listener
+hideItems.map(el => new ItemToHide(el)).forEach(el => el.addListener());
