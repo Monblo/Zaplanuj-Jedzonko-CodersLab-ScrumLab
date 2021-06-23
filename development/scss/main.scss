@@ -3,6 +3,7 @@
 //
 // Sass:
 // https://fontawesome.com/how-to-use/on-the-web/using-with/sass
+
 @import "generic/reset";
 @import "settings/colors";
 @import "settings/fonts";
@@ -13,3 +14,8 @@
 @import "elements/features";
 @import "elements/callToAction";
 @import "elements/aboutAuthor";
+@import "elements/app/app__header";
+@import "elements/app/app__main";
+@import "elements/callToAction";
+@import "elements/aboutAuthor";
+@import "elements/app/app__widget";
