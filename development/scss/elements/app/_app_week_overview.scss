@@ -1,42 +1,64 @@
-.app__calendar{
+.app__calendar {
   background-color: $color-background;
-  font-size: 14px;
+  font-size: .875rem;
   border: 2px dotted $color-table;
-  padding: 0 30px;
-  position: relative;
+  padding: 0 2.25rem;
+  grid-area: overviewCalendar;
+  position: absolute;
 
-  h2{
+  h2 {
     color: $color-accent;
     text-align: center;
-    padding: 10px;
+    padding: .625rem;
     border-bottom: 1px solid $color-table;
     font-weight: 700;
   }
 
-  .table__days{
+  .table__days {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
-  td, th{
-    padding: 10px;
+  td, th {
+    padding: .625rem;
     border-bottom: 1px solid $color-table;
   }
 
-  td{
+  td {
     color: $color-table;
   }
 
-  .button__table{
+  .button__table {
     background-color: $color-background;
     border: none;
     color: $color-accent;
-    padding: 10px;
+    padding: .625rem;
   }
 
-  .button__next {
-    position: absolute;
-    right: 30px;
-  }
+  .button__switch {
+    display: flex;
+    justify-content: space-between;
 
+    .button__previous {
+      transform: translateX(-2.1875rem);
+
+      &::before {
+        font-family: "Font Awesome 5 Free", sans-serif;
+        content: "\f100";
+        font-weight: 700;
+        margin-right: .3125rem;
+      }
+    }
+
+    .button__next{
+      transform: translateX(2.1875rem);
+
+      &::after{
+        font-family: "Font Awesome 5 Free", sans-serif;
+        content: "\f101";
+        font-weight: 700;
+        margin-left: .3125rem;
+      }
+    }
+  }
 }

@@ -30,6 +30,24 @@
         </ul>
     </nav>
     <section class="app__desktop">
+        <form class="form__cell app__form">
+            <h1>Witaj,</h1>
+            <h2>Wygląda na to że jesteś tutaj <br> pierwszy raz !</h2>
+            <input placeholder="tutaj wpisz jak masz na imię">
+            <button class="btn form__button">Gotowe!</button>
+            <p>Podaj nam swoje imię, a my zorganizujemy <br> dla Ciebie najlepszą aplikację :)</p>
+        </form>
+  
+        <div class="widget widget__add">
+            <div class="widget__double widget__recipe">
+                <span class="far fa-plus-square fa-4x"></span>
+                <p>dodaj przepis</p>
+            </div>
+            <div class="widget__double widget__plan">
+                <span class="far fa-plus-square fa-4x"></span>
+                <p>dodaj plan</p>
+            </div>
+        </div>
         <div class="app__widget">
             <div class="app__widget--message info">
                 <i class="fas fa-info-circle"></i> <span class="app__widget--message--text">Masz już 99 przepisów, nieźle!</span><i id="info" class="close fas fa-window-close"></i>
@@ -41,6 +59,7 @@
                 <i class="fas fa-check-circle"></i> <span class="app__widget--message--text">Świetnie, że jesteś! Udanego planowania i smacznego! :)</span><i id="success" class="close fas fa-window-close"></i>
             </div>
         </div>
+<!--        trzeba poprawić pozycję tabeli w gridzie względem widgetów-->
         <div class="app__calendar">
             <h2>Twój plan na {nr_tygodnia} tydzień:</h2>
             <table class="app__calendar_table">
@@ -103,12 +122,106 @@
                 </tr>
                 </tbody>
             </table>
-<!--            ikony do poprawy-->
-            <i class="fal fa-angle-double-left"></i><button class="button__previous button__table">poprzedni</button>
-            <button class="button__next button__table">następny</button><i class="fal fa-angle-double-right"></i>
+            <div class="button__switch">
+                <button class="button__table button__previous">poprzedni</button>
+                <button class="button__table button__next">następny</button>
+            </div>
         </div>
-
-
+<!--        poniższy formularz ma klasę hidden, której usunięcie spowoduje pojawienie się go powyżej pozostałych elementów w app desktop -->
+        <form class="app__desktop__add__recipe hidden">
+            <div class="app__desktop__add__recipe__header">
+                <h2>NOWY PRZEPIS</h2>
+                <div>
+                    <button type="button">Anuluj</button>
+                    <button type="submit">Zapisz i zamknij</button>
+                </div>
+            </div>
+            <hr/>
+            <div class="app__dektop__input__group">
+                <label for="recipe-name">Nazwa przepisu</label>
+                <input id="recipe-name" type="text"/>
+                <label for="recipe-description">Opis przepisu</label>
+                <textarea id="recipe-description"></textarea>
+            </div>
+            <div class="app__desktop__add__recipe__body">
+                <div class="app__desktop__add__recipe__body--instructions">
+                    <h3>INSTRUKCJE</h3>
+                    <hr/>
+                    <textarea id="recipe-instruction"></textarea>
+                    <i class="fas fa-plus-square"></i>
+                    <ol class="app__desktop__add__recipe__body--list">
+                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
+                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
+                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
+                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
+                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
+                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
+                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
+                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
+                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
+                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                    </ol>
+                </div>
+                <div class="app__desktop__add__recipe__body--instructions">
+                    <h3>SKŁADNIKI</h3>
+                    <hr/>
+                    <textarea id="recipe-ngredients"></textarea>
+                    <i class="fas fa-plus-square"></i>
+                    <ul class="app__desktop__add__recipe__body--list">
+                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
+                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
+                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
+                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
+                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
+                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
+                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
+                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
+                                class="fas fa-trash-alt"></i></li>
+                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
+                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
+                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
     </section>
 </main>
 <script src="./js/app.js"></script>
