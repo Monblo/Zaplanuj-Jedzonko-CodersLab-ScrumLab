@@ -58,9 +58,10 @@
     grid-gap: .5rem;
     padding: 2rem 3rem .5rem;
     grid-template-areas:
-  ". . . . . . widget widget widget widget widget widget widget widget widget"
-  ". . . . . . widget widget widget widget widget widget widget widget widget"
-  ". . . . . . widget widget widget widget widget widget widget widget widget"
+
+  "widgetPlus widgetPlus widgetPlus widgetPlus widgetPlus widgetPlus widget widget widget widget widget widget widget widget widget"
+  "widgetPlus widgetPlus widgetPlus widgetPlus widgetPlus widgetPlus widget widget widget widget widget widget widget widget widget"
+  "widgetPlus widgetPlus widgetPlus widgetPlus widgetPlus widgetPlus widget widget widget widget widget widget widget widget widget"
   ". . . . . . . . . . . . . . ."
   ". . . . . . . . . . . . . . ."
   ". . . . . . . . . . . . . . ."
