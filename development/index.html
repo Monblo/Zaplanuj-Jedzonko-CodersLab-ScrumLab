@@ -13,7 +13,6 @@
     <script src="https://kit.fontawesome.com/b282f36c60.js" crossorigin="anonymous"></script>
     <!--    Flickity - carousel-->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-
     <!--    Style -->
     <link rel="stylesheet" href="./css/main.css"/>
     <script src="../webpack.config.js"></script>
@@ -23,7 +22,7 @@
     <h1 class="logo">Zaplanuj <span class="logo__color">Jedzonko</span></h1>
     <nav>
         <ul>
-            <li><a href="/app">Zaplanuj posiłki!</a></li> <!-- poprawić odnośnik -->
+            <li><a href="app.html">Zaplanuj posiłki!</a></li>
             <li><a href="#features">Dlaczego warto?</a></li>
             <li><a href="#about">O mnie</a></li>
             <li><a href="#contact">Kontakt</a></li>
@@ -73,12 +72,56 @@
             <button class="btn call__button"><a href="index.html">Lorem ipsum</a></button>
         </div>
     </section>
-    <section id="features">
-        <!-- features -->
+
+
+    <section id="features" class="container">
+        <div class="feature">
+            <i class="fas fa-check"></i>
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
+                Aliquam erat volutpat.
+                Donec placerat nisl magna,
+                et faucibus arcu
+                condimentum sed.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-clock"></i>
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
+                Aliquam erat volutpat.
+                Donec placerat nisl magna,
+                et faucibus arcu
+                condimentum sed.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-list"></i>
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
+                Aliquam erat volutpat.
+                Donec placerat nisl magna,
+                et faucibus arcu
+                condimentum sed.</p>
+        </div>
     </section>
-    <section>
+
+
+
+    <section class="newsletter">
         <!-- newsletter -->
+        <div class="container">
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <div>
+                <form>
+                    <input id='email' type="email" name="email"><button id='sub-btn' type="submit"  value="Lorem">Lorem</button>
+                </form>
+            </div>
+        </div>
     </section>
+
+
     <section id="about" class="about__cell">
         <div class="about__image"></div>
         <div class="about__text">
@@ -92,8 +135,37 @@
         <!-- three columns -->
     </section>
 </main>
-<footer>
-    <!-- copyright -->
+<footer id="footer" class="footer__cell">
+    <div class="footer__info">
+        <div class="footer__text">
+            <h3>Lorem Ipsum Dolor</h3>
+            <p>Aenean porttitor justo eu est rutrum, vel bibendum sem viverra. Etiam placerat bibendum libero, sed
+                tincidunt purus egestas ut. Fusce porta auctor aliquam.</p>
+        </div>
+        <div class="footer__list">
+            <h3>Lorem Ipsum Dolor</h3>
+            <ul>
+                <li class="list__item">Aenean porttitor justo</li>
+                <li class="list__item">vel bibendum sem viverra</li>
+                <li class="list__item"> Phasellus condimentum ultricies</li>
+                <li class="list__item">Fusce porta auctor</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Lorem Ipsum Dolor</h3>
+            <div class="footer__form">
+                <input class="footer__input"><button class="btn footer__button">Lorem</button>
+            </div>
+            <div class="footer__icons">
+                <a href="" class="facebook"><span class="fab fa-facebook-square fa-2x" style="color: #fff"></span></a>
+                <a href="" class="twitter"><span class="fab fa-twitter-square fa-2x" style="color: #fff"></span></a>
+                <a href="" class="instagram"><span class="fab fa-instagram fa-2x" style="color: #fff"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright <a href="" class="copyrigth__link">ZaplanujJedzonko.pl</a></p>
+    </div>
 </footer>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="./js/index.js"></script>

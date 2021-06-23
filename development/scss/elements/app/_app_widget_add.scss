@@ -2,15 +2,15 @@
   display: flex;
   background-color: $color-background;
   position: absolute;
-  left: 230px;
-  top: 130px;
+  grid-area: widgetPlus;
+  margin-top: 1rem;
 }
 
 .widget__double{
-  width: 200px;
+  width: 11.25rem;
   text-align: center;
   border: 2px dotted $color-success;
-  padding: 40px 0;
+  padding: 2.5rem 0;
   color: $color-success;
 
   &:hover{
@@ -18,11 +18,11 @@
   }
 
   p{
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 1rem;
+    margin-top: .625rem;
   }
 }
 
 .widget__plan{
-  margin-left: 15px;
+  margin-left: .9375rem;
 }
