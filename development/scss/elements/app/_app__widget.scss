@@ -24,6 +24,7 @@
         right: calc(-1rem + 5px);
         font-size: 1.3rem;
         &:hover {
+          color: $color-bin;
           transform: translateY(.1rem) scale(95%);
           cursor: pointer;
         }
