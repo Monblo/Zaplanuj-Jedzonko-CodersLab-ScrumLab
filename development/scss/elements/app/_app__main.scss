@@ -1,4 +1,7 @@
 .app__main {
+  .hidden {
+    display: none;
+  }
   height: calc(100vh - 9rem);
   display: flex;
   .app__menu {
@@ -42,5 +45,6 @@
   .app__desktop {
     width: 85%;
     background-image: url("../assets/background.png");
+    position: relative;
   }
 }
