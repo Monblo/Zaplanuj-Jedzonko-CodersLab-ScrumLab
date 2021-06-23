@@ -1,4 +1,7 @@
 .app__main {
+  .hidden {
+    display: none;
+  }
   height: calc(100vh - 9rem);
   display: flex;
 
@@ -48,6 +51,7 @@
   .app__desktop {
     width: 85%;
     background-image: url("../assets/background.png");
+    position: relative;
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     grid-template-rows: repeat(20, 1fr);
@@ -69,6 +73,5 @@
   ". . . . . . . . . . . . . . ."
   ". . . . . . . . . . . . . . ."
   ". . . . . . . . . . . . . . .";
-
   }
 }
