@@ -13,16 +13,16 @@
     <script src="https://kit.fontawesome.com/b282f36c60.js" crossorigin="anonymous"></script>
     <!--    Flickity - carousel-->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-
     <!--    Style -->
     <link rel="stylesheet" href="./css/main.css"/>
+    <script src="../webpack.config.js"></script>
 </head>
 <body>
 <header>
     <h1 class="logo">Zaplanuj <span class="logo__color">Jedzonko</span></h1>
     <nav>
         <ul>
-            <li><a href="/app">Zaplanuj posiłki!</a></li> <!-- poprawić odnośnik -->
+            <li><a href="app.html">Zaplanuj posiłki!</a></li>
             <li><a href="#features">Dlaczego warto?</a></li>
             <li><a href="#about">O mnie</a></li>
             <li><a href="#contact">Kontakt</a></li>
@@ -63,17 +63,73 @@
                 luctus sapien. Nullam ut accumsan risus, vitae imperdiet augue.</p>
         </div>
     </section>
-    <section>
-        <!-- CTA + button -->
+    <section id="call" class="call__cell">
+        <div class="call__text">
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p> placerat bibendum libero, sed tincidunt purus egestas ut ed dapibus leo aliquam eget.</p>
+        </div>
+        <div>
+            <button class="btn call__button"><a href="index.html">Lorem ipsum</a></button>
+        </div>
     </section>
-    <section id="features">
-        <!-- features -->
+
+
+    <section id="features" class="container">
+        <div class="feature">
+            <i class="fas fa-check"></i>
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
+                Aliquam erat volutpat.
+                Donec placerat nisl magna,
+                et faucibus arcu
+                condimentum sed.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-clock"></i>
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
+                Aliquam erat volutpat.
+                Donec placerat nisl magna,
+                et faucibus arcu
+                condimentum sed.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-list"></i>
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit.
+                Aliquam erat volutpat.
+                Donec placerat nisl magna,
+                et faucibus arcu
+                condimentum sed.</p>
+        </div>
     </section>
-    <section>
+
+
+
+    <section class="newsletter">
         <!-- newsletter -->
+        <div class="container">
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <div>
+                <form>
+                    <input id='email' type="email" name="email"><button id='sub-btn' type="submit"  value="Lorem">Lorem</button>
+                </form>
+            </div>
+        </div>
     </section>
-    <section id="about">
-        <!-- aobut me -->
+
+
+    <section id="about" class="about__cell">
+        <div class="about__image"></div>
+        <div class="about__text">
+            <h3>Lorem ipsum dolor sit amet</h3>
+            <p>Ut et dolor convallis, pellentesque nisi non, semper lorem. Nam in cursus metus, eu lobortis tortor.
+                Proin scelerisque leo malesuada blandit scelerisque. Interdum et malesuada fames ac ante ipsum primis in
+                faucibus.</p>
+        </div>
     </section>
     <section id="contact">
         <!-- three columns -->
