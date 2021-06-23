@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
           rel="stylesheet">
     <!--    Font Awesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <!--    Style-->
     <link rel="stylesheet" href="./css/main.css"/>
 </head>
@@ -21,14 +22,28 @@
     </nav>
 </header>
 <main class="app__main">
-<nav class="app__menu">
-    <ul>
-        <li><a href="app.html">Pulpit</a></li>
-        <li><a href="recipes.html">Przepisy</a></li>
-        <li><a href="schedules.html">Plany</a></li>
-    </ul>
-</nav>
-<section class="app__desktop"></section>
+    <nav class="app__menu">
+        <ul>
+            <li><a href="app.html">Pulpit</a></li>
+            <li><a href="recipes.html">Przepisy</a></li>
+            <li><a href="schedules.html">Plany</a></li>
+        </ul>
+    </nav>
+    <section class="app__desktop">
+        <div class="app__widget">
+            <div class="app__widget--message info">
+                <i class="fas fa-info-circle"></i> <span class="app__widget--message--text">Masz już 99 przepisów, nieźle!</span><i id="info" class="close fas fa-window-close"></i>
+            </div>
+            <div class="app__widget--message exclamation">
+                <i class="fas fa-exclamation-circle"></i> <span class="app__widget--message--text">Pamiętaj, by dodać plan!</span><i id="exclamation" class="close fas fa-window-close"></i>
+            </div>
+            <div class="app__widget--message success">
+                <i class="fas fa-check-circle"></i> <span class="app__widget--message--text">Świetnie, że jesteś! Udanego planowania i smacznego! :)</span><i id="success" class="close fas fa-window-close"></i>
+            </div>
+        </div>
+
+
+    </section>
 </main>
 <script src="./js/app.js"></script>
 </body>
