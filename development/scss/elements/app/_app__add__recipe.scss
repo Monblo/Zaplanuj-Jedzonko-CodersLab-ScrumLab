@@ -1,4 +1,19 @@
 .app__desktop__add__recipe {
+  .warning {
+    font-size: .7rem;
+    width: 18rem;
+    padding: .5rem;
+    position: absolute;
+    right: 0;
+    color: $color-warning;
+    border: 2px solid $color-warning;
+    &:hover {
+      cursor: pointer;
+    }
+    &:nth-of-type(2) {
+      top: 4rem;
+    }
+  }
   i:hover {
     cursor: pointer;
     transform: translateY(.2rem) scale(95%);
@@ -29,6 +44,7 @@
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 2rem;
+    position: relative;
   }
   label {
     margin: 0 1rem 1.5rem 5rem;
@@ -49,6 +65,7 @@
   .app__desktop__add__recipe__body {
     width: 100%;
     .app__desktop__add__recipe__body--instructions {
+      position: relative;
       width: 50%;
       margin: 0 3rem;
       display: flex;

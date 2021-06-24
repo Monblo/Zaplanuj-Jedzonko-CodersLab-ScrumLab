@@ -50,7 +50,7 @@
         </div>
         <div class="app__widget">
             <div class="app__widget--message info">
-                <i class="fas fa-info-circle"></i> <span class="app__widget--message--text">Masz już <span id="recipes-lenght">99</span> przepisy, nieźle!</span><i id="info" class="close fas fa-window-close"></i>
+                <i class="fas fa-info-circle"></i> <span class="app__widget--message--text">Nieźle Ci idzie tworzenie przepisów! Masz ich już <span id="recipes-lenght">99</span>, brawo!</span><i id="info" class="close fas fa-window-close"></i>
             </div>
             <div class="app__widget--message exclamation">
                 <i class="fas fa-exclamation-circle"></i> <span class="app__widget--message--text">Pamiętaj, by dodać plan!</span><i id="exclamation" class="close fas fa-window-close"></i>
@@ -140,13 +140,13 @@
             <hr/>
             <div class="app__dektop__input__group">
                 <label for="recipe-name">Nazwa przepisu</label>
-                <input id="recipe-name" type="text" placeholder="Podaj nazwę przepisu"/>
+                <input id="recipe-name" type="text" placeholder="Podaj nazwę przepisu"/><span id="recipe-name-warning" class="warning hidden">Nazwa przepisu musi mieć między 2 a 50 znaków</span>
                 <label for="recipe-description">Opis przepisu</label>
-                <textarea id="recipe-description" placeholder="Opisz swój przepis"></textarea>
+                <textarea id="recipe-description" placeholder="Opisz swój przepis"></textarea><span id="recipe-description-warning" class="warning hidden">Opis musi mieć między 10 a 360 znaków</span>
             </div>
             <div class="app__desktop__add__recipe__body">
                 <div class="app__desktop__add__recipe__body--instructions">
-                    <h3>INSTRUKCJE</h3>
+                    <h3>INSTRUKCJE</h3><span id="recipe-instruction-warning" class="warning hidden">Instrukcja musi mieć między 5 a 50 znaków</span>
                     <hr/>
                     <textarea id="recipe-instruction" placeholder="Wpisz instrukcje krok po kroku"></textarea>
                     <i id="recipe-instruction-add" class="fas fa-plus-square"></i>
@@ -155,12 +155,12 @@
                      </ol>
                 </div>
                 <div class="app__desktop__add__recipe__body--instructions">
-                    <h3>SKŁADNIKI</h3>
+                    <h3>SKŁADNIKI</h3><span id="recipe-ingredient-warning" class="warning hidden">Składnik mieć między 2 a 150 znaków</span>
                     <hr/>
                     <textarea id="recipe-ingredients" placeholder="Podaj potrzebne składniki"></textarea>
                     <i id="recipe-ingredients-add" class="fas fa-plus-square"></i>
                     <ul id="ingredients-list" class="app__desktop__add__recipe__body--list">
-                        
+
                     </ul>
                 </div>
             </div>
