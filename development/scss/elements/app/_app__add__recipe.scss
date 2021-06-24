@@ -47,7 +47,9 @@
     height: 4rem;
   }
   .app__desktop__add__recipe__body {
+    width: 100%;
     .app__desktop__add__recipe__body--instructions {
+      width: 50%;
       margin: 0 3rem;
       display: flex;
       flex-wrap: wrap;
