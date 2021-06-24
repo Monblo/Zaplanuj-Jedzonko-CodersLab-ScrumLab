@@ -18,7 +18,7 @@
 <header class="app__header">
     <h1 class="logo">Zaplanuj <span class="logo__color">Jedzonko</span></h1>
     <nav class="app__nav">
-        <span id="user__name">Imię</span><i class="far fa-user-circle"></i>
+        <span id="user__name"></span><i class="far fa-user-circle"></i>
     </nav>
 </header>
 <main class="app__main">
@@ -33,7 +33,7 @@
         <form class="form__cell app__form hidden">
             <h1>Witaj,</h1>
             <h2>Wygląda na to że jesteś tutaj <br> pierwszy raz !</h2>
-            <input placeholder="tutaj wpisz jak masz na imię"></input>
+            <input class="userName" placeholder="tutaj wpisz jak masz na imię">
             <button class="btn form__button">Gotowe!</button>
             <p>Podaj nam swoje imię, a my zorganizujemy <br> dla Ciebie najlepszą aplikację :)</p>
         </form>
@@ -41,6 +41,7 @@
         <div class="widget widget__add">
             <div class="widget__double widget__recipe">
                 <span id="widget-add-recipe" class="far fa-plus-square fa-4x"></span>
+
                 <p>dodaj przepis</p>
             </div>
             <div class="widget__double widget__plan">

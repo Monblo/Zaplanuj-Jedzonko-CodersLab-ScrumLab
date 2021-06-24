@@ -1,17 +1,19 @@
 .app__widget {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   grid-area: widget;
   .app__widget--message {
     position: relative;
     background-color: $color-background;
     display: flex;
     align-items: center;
-    margin: 1rem;
+    margin: 1rem 0 0 1rem;
     padding: 1rem;
     padding-right: 2.3rem;
     font-size: 1.2rem;
     max-width: 100%;
-    border: 3px dotted transparent;
+    border: 2px dotted transparent;
     &.hidden {
       display: none;
     }
