@@ -1,16 +1,20 @@
 .widget__add{
   display: flex;
-  background-color: $color-background;
-  position: absolute;
+  //position: absolute;
   grid-area: widgetPlus;
   margin-top: 1rem;
 }
 
 .widget__double{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-background;
   width: 11.25rem;
   text-align: center;
   border: 2px dotted $color-success;
-  padding: 2.5rem 0;
+  //padding: 2.5rem 0;
   color: $color-success;
 
   &:hover{
@@ -19,7 +23,7 @@
 
   p{
     font-size: 1rem;
-    margin-top: .625rem;
+    margin-top: 1rem;
   }
 }
 

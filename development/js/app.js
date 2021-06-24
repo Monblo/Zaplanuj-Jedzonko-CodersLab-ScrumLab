@@ -120,3 +120,22 @@ window.addEventListener('DOMContentLoaded', () => counterUpdate());
 document.getElementById('widget-add-recipe').addEventListener('click', () => form.form.classList.remove('hidden'));
 
 const check = document.querySelectorAll('#instructions-list li');
+
+
+const firstTime = localStorage.getItem("userName");
+const form = document.querySelector(".app__form");
+const getName = document.querySelector(".userName")
+const formBtn = document.querySelector(".form__button");
+
+if (!firstTime){
+    formBtn.addEventListener('click', function (){
+        const userName = getName.value;
+        localStorage.setItem('userName', `${userName}`);
+        document.getElementById('user__name').innerHTML = `${localStorage.getItem("userName")}`;
+    })
+
+} else {
+    form.className = "hidden";
+    document.getElementById("user__name").innerHTML = `${localStorage.getItem("userName")}`;
+}
+
