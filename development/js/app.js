@@ -35,26 +35,40 @@ const form = {
     ingredientsList: document.getElementById('ingredients-list'),
 }
 //Dodanie składnika lub instrukcji
+
+let editedElem = null;
+const addToListFinish = (edit, remove, input, placeholder) => {
+    editListElement(edit, input);
+    deleteListElement(remove);
+    document.getElementById(input).value = '';
+    document.getElementById(input).setAttribute('placeholder', placeholder);
+    editedElem = null;
+}
+
 const addToList = (e) => {
     if (e.target === form.addInstruction) {
-        if(form.instruction.value.length > 50 || form.instruction.value.length < 5) {
+        if (form.instruction.value.length > 50 || form.instruction.value.length < 5) {
             showWarning('recipe-instruction-warning');
+        } else if (editedElem) {
+            editedElem.innerHTML = form.instruction.value + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
+            addToListFinish('#instructions-list .edit-list-item', '#instructions-list .remove-list-item', 'recipe-instruction', 'Jaki jest następny krok?');
         } else {
             const listElement = document.createElement('li');
-            listElement.innerHTML = form.instruction.value + ' <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i>';
+            listElement.innerHTML = form.instruction.value + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
             form.instructionsList.appendChild(listElement);
-            form.instruction.value = '';
-            form.instruction.setAttribute('placeholder', 'Jaki jest następny krok?');
+            addToListFinish('#instructions-list .edit-list-item', '#instructions-list .remove-list-item', 'recipe-instruction', 'Jaki jest następny krok?');
         }
     } else if (e.target === form.addIngredient) {
-        if(form.ingredient.value.length > 150 || form.ingredient.value.length < 5) {
+        if (form.ingredient.value.length > 150 || form.ingredient.value.length < 5) {
             showWarning('recipe-ingredient-warning');
+        } else if (editedElem) {
+            editedElem.innerHTML = form.ingredient.value + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
+            addToListFinish('#ingredients-list .edit-list-item', '#ingredients-list .remove-list-item', 'recipe-ingredients', 'Jaki jest następny składnik?');
         } else {
             const listElement = document.createElement('li');
-            listElement.innerHTML = form.ingredient.value + ' <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i>';
+            listElement.innerHTML = form.ingredient.value + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
             form.ingredientsList.appendChild(listElement);
-            form.ingredient.value = '';
-            form.ingredient.setAttribute('placeholder', 'Jaki jest następny składnik?');
+            addToListFinish('#ingredients-list .edit-list-item', '#ingredients-list .remove-list-item', 'recipe-ingredients', 'Jaki jest następny składnik?');
         }
     } else {
         console.log('something went wrong');
@@ -119,21 +133,37 @@ window.addEventListener('DOMContentLoaded', () => counterUpdate());
 
 document.getElementById('widget-add-recipe').addEventListener('click', () => form.form.classList.remove('hidden'));
 
-const check = document.querySelectorAll('#instructions-list li');
 
+//Dodanie imienia dla odwiedzającego po raz pierwszy
 const firstTime = localStorage.getItem("userName");
 const nameForm = document.querySelector(".app__form");
 const getName = document.querySelector(".userName")
 const formBtn = document.querySelector(".form__button");
 
-if (!firstTime){
-    formBtn.addEventListener('click', function (){
+if (!firstTime) {
+    formBtn.addEventListener('click', function () {
         const userName = getName.value;
         localStorage.setItem('userName', `${userName}`);
         document.getElementById('user__name').innerHTML = `${localStorage.getItem("userName")}`;
     })
 
 } else {
-    nameForm.className = "hidden";
+    nameForm.classList.add("hidden");
     document.getElementById("user__name").innerHTML = `${localStorage.getItem("userName")}`;
+}
+
+//Usuwanie elementów listy
+const deleteListElement = (selector) => {
+    document.querySelectorAll(selector).forEach(el => el.addEventListener('click', e => e.target.parentElement.remove()));
+}
+
+//Edytowanie elementów listy
+const editListElement = (selector, input) => {
+    document.querySelectorAll(selector).forEach((element) => {
+        element.addEventListener("click", (e) => {
+            editedElem = e.target.parentElement;
+            document.getElementById(input).value =
+                e.target.parentElement.innerText.slice(0, -2);
+        });
+    });
 }
