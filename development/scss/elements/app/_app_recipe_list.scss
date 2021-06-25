@@ -40,54 +40,24 @@
   }
 
   &--table {
-    //display: block;
-    text-align: left;
+    display: block;
     color: $color-table;
     width: 90%;
     margin: 0 auto;
-    overflow-y: auto;
-    max-height: 5rem;
-
-    .col1 {
-      width: 10%;
-    }
-
-    .col2 {
-      width: 25%;
-    }
-
-    .col3 {
-      width: 55%;
-    }
-
-    .col4 {
-      width: 10%;
-    }
+    height: 75%;
 
     th, td {
       padding: 10px 0;
       font-weight: 700;
-    }
-
-    th {
-      color: $color-nav;
-      font-size: 16px;
-      border-top: 1px solid $color-table;
+      text-align: left;
       border-bottom: 1px solid $color-table;
+      width: 300px;
     }
 
     tbody {
-      //position: absolute;
-      width: 90%;
-      //max-height: 3rem;
-      //-----------scroll który trzeba poprawić -------------
-      //overflow-y: auto;
-
-
-      td {
-        padding: 10px 0;
-        border-bottom: 1px solid $color-table;
-      }
+      display: block;
+      height: 100%;
+      overflow-y: auto;
 
       .recipe__edit {
         color: $color-warning;
@@ -98,6 +68,49 @@
         color: $color-bin;
         margin-left: 10px;
         cursor: pointer;
+      }
+
+      td:first-child{
+        width: 100px;
+      }
+
+      td:nth-child(2){
+        width: 200px;
+      }
+
+      td:nth-child(3){
+        width: 550px;
+      }
+
+      td:last-child{
+        width: 60px;
+      }
+    }
+
+    thead tr{
+      display: block;
+      width: 100%;
+
+      th {
+        color: $color-nav;
+        font-size: 16px;
+        border-top: 1px solid $color-table;
+      }
+
+      th:first-child{
+        width: 100px;
+      }
+
+      th:nth-child(2){
+        width: 200px;
+      }
+
+      th:nth-child(3){
+        width: 550px;
+      }
+
+      th:last-child{
+        width: 80px;
       }
     }
   }
