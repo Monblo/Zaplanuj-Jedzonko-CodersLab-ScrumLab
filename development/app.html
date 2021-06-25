@@ -18,7 +18,7 @@
 <header class="app__header">
     <h1 class="logo">Zaplanuj <span class="logo__color">Jedzonko</span></h1>
     <nav class="app__nav">
-        <span id="user__name">Imię</span><i class="far fa-user-circle"></i>
+        <span id="user__name"></span><i class="far fa-user-circle"></i>
     </nav>
 </header>
 <main class="app__main">
@@ -30,27 +30,28 @@
         </ul>
     </nav>
     <section class="app__desktop">
-        <form class="form__cell app__form">
+        <form class="form__cell app__form hidden">
             <h1>Witaj,</h1>
             <h2>Wygląda na to że jesteś tutaj <br> pierwszy raz !</h2>
-            <input placeholder="tutaj wpisz jak masz na imię"></input>
+            <input class="userName" placeholder="tutaj wpisz jak masz na imię">
             <button class="btn form__button">Gotowe!</button>
             <p>Podaj nam swoje imię, a my zorganizujemy <br> dla Ciebie najlepszą aplikację :)</p>
         </form>
   
         <div class="widget widget__add">
             <div class="widget__double widget__recipe">
-                <span class="far fa-plus-square fa-4x"></span>
+                <span id="widget-add-recipe" class="far fa-plus-square fa-4x"></span>
+
                 <p>dodaj przepis</p>
             </div>
             <div class="widget__double widget__plan">
-                <span class="far fa-plus-square fa-4x"></span>
+                <span id="widget-add-plan" class="far fa-plus-square fa-4x"></span>
                 <p>dodaj plan</p>
             </div>
         </div>
         <div class="app__widget">
             <div class="app__widget--message info">
-                <i class="fas fa-info-circle"></i> <span class="app__widget--message--text">Masz już 99 przepisów, nieźle!</span><i id="info" class="close fas fa-window-close"></i>
+                <i class="fas fa-info-circle"></i> <span class="app__widget--message--text">Nieźle Ci idzie tworzenie przepisów! Masz ich już <span id="recipes-lenght">99</span>, brawo!</span><i id="info" class="close fas fa-window-close"></i>
             </div>
             <div class="app__widget--message exclamation">
                 <i class="fas fa-exclamation-circle"></i> <span class="app__widget--message--text">Pamiętaj, by dodać plan!</span><i id="exclamation" class="close fas fa-window-close"></i>
@@ -59,98 +60,108 @@
                 <i class="fas fa-check-circle"></i> <span class="app__widget--message--text">Świetnie, że jesteś! Udanego planowania i smacznego! :)</span><i id="success" class="close fas fa-window-close"></i>
             </div>
         </div>
+        <!--        trzeba poprawić pozycję tabeli w gridzie względem widgetów-->
+        <div class="app__calendar">
+            <h2>Twój plan na {nr_tygodnia} tydzień:</h2>
+            <table class="app__calendar_table">
+                <thead>
+                <tr class="table__days">
+                    <th>Poniedziałek</th>
+                    <th>Wtorek</th>
+                    <th>Środa</th>
+                    <th>Czwartek</th>
+                    <th>Piątek</th>
+                    <th>Sobota</th>
+                    <th>Niedziela</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>śniadanie</td>
+                    <td>śniadanie</td>
+                    <td>śniadanie</td>
+                    <td>śniadanie</td>
+                    <td>śniadanie</td>
+                    <td>śniadanie</td>
+                    <td>śniadanie</td>
+                </tr>
+                <tr>
+                    <td>drugie śniadanie</td>
+                    <td>drugie śniadanie</td>
+                    <td>drugie śniadanie</td>
+                    <td>drugie śniadanie</td>
+                    <td>drugie śniadanie</td>
+                    <td>drugie śniadanie</td>
+                    <td>drugie śniadanie</td>
+                </tr>
+                <tr>
+                    <td>zupa</td>
+                    <td>zupa</td>
+                    <td>zupa</td>
+                    <td>zupa</td>
+                    <td>zupa</td>
+                    <td>zupa</td>
+                    <td>zupa</td>
+                </tr>
+                <tr>
+                    <td>drugie danie</td>
+                    <td>drugie danie</td>
+                    <td>drugie danie</td>
+                    <td>drugie danie</td>
+                    <td>drugie danie</td>
+                    <td>drugie danie</td>
+                    <td>drugie danie</td>
+                </tr>
+                <tr>
+                    <td>kolacja</td>
+                    <td>kolacja</td>
+                    <td>kolacja</td>
+                    <td>kolacja</td>
+                    <td>kolacja</td>
+                    <td>kolacja</td>
+                    <td>kolacja</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="button__switch">
+                <button class="button__table button__previous">poprzedni</button>
+                <button class="button__table button__next">następny</button>
+            </div>
+        </div>
       
 <!--        poniższy formularz ma klasę hidden, której usunięcie spowoduje pojawienie się go powyżej pozostałych elementów w app desktop -->
-        <form class="app__desktop__add__recipe hidden">
+        <form id="recipe-form" class="app__desktop__add__recipe hidden">
             <div class="app__desktop__add__recipe__header">
                 <h2>NOWY PRZEPIS</h2>
                 <div>
-                    <button type="button">Anuluj</button>
-                    <button type="submit">Zapisz i zamknij</button>
+                    <button id="cancel-recipe" type="button">Anuluj</button>
+                    <button id="save-recipe" type="submit">Zapisz i zamknij</button>
                 </div>
             </div>
             <hr/>
             <div class="app__dektop__input__group">
                 <label for="recipe-name">Nazwa przepisu</label>
-                <input id="recipe-name" type="text"/>
+                <input id="recipe-name" type="text" placeholder="Podaj nazwę przepisu"/><span id="recipe-name-warning" class="warning hidden">Nazwa przepisu musi mieć między 2 a 50 znaków</span>
                 <label for="recipe-description">Opis przepisu</label>
-                <textarea id="recipe-description"></textarea>
+                <textarea id="recipe-description" placeholder="Opisz swój przepis"></textarea><span id="recipe-description-warning" class="warning hidden">Opis musi mieć między 10 a 360 znaków</span>
             </div>
             <div class="app__desktop__add__recipe__body">
                 <div class="app__desktop__add__recipe__body--instructions">
-                    <h3>INSTRUKCJE</h3>
+                    <h3>INSTRUKCJE</h3><span id="recipe-instruction-warning" class="warning hidden">Instrukcja musi mieć między 5 a 50 znaków</span>
                     <hr/>
-                    <textarea id="recipe-instruction"></textarea>
-                    <i class="fas fa-plus-square"></i>
-                    <ol class="app__desktop__add__recipe__body--list">
-                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
-                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
-                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
-                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
-                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
-                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
-                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
-                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
-                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
-                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                    </ol>
+                    <textarea id="recipe-instruction" placeholder="Wpisz instrukcje krok po kroku"></textarea>
+                    <i id="recipe-instruction-add" class="fas fa-plus-square"></i>
+                    <ol id="instructions-list" class="app__desktop__add__recipe__body--list">
+
+                     </ol>
                 </div>
                 <div class="app__desktop__add__recipe__body--instructions">
-                    <h3>SKŁADNIKI</h3>
+                    <h3>SKŁADNIKI</h3><span id="recipe-ingredient-warning" class="warning hidden">Składnik mieć między 2 a 150 znaków</span>
                     <hr/>
-                    <textarea id="recipe-ngredients"></textarea>
-                    <i class="fas fa-plus-square"></i>
-                    <ul class="app__desktop__add__recipe__body--list">
-                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
-                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
-                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
-                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
-                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
-                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
-                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Donec vel dolor vehicula sapien. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Phasellus id facilisis purus. Phasellus volutpat sodales auctor. Vivamus non. <i
-                                class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>Duis aliquet elit diam, ut porta nisi. <i class="fas fa-edit"></i> <i
-                                class="fas fa-trash-alt"></i></li>
-                        <li>Pellentesque pellentesque est vitae leo venenatis commodo. Sed lectus magna, posuere at sem.
-                            <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
-                        <li>In eget lorem maximus, condimentum eros lacinia, sodales felis. Vestibulum non metus ac nisi
-                            volutpat pretium. <i class="fas fa-edit"></i> <i class="fas fa-trash-alt"></i></li>
+                    <textarea id="recipe-ingredients" placeholder="Podaj potrzebne składniki"></textarea>
+                    <i id="recipe-ingredients-add" class="fas fa-plus-square"></i>
+                    <ul id="ingredients-list" class="app__desktop__add__recipe__body--list">
+
                     </ul>
                 </div>
             </div>
