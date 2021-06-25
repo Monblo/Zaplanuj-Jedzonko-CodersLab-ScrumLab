@@ -51,7 +51,7 @@
         </div>
         <div class="app__widget">
             <div class="app__widget--message info">
-                <i class="fas fa-info-circle"></i> <span class="app__widget--message--text">Nieźle Ci idzie tworzenie przepisów! Masz ich już <span id="recipes-lenght">99</span>, brawo!</span><i id="info" class="close fas fa-window-close"></i>
+                <i class="fas fa-info-circle"></i> <span class="app__widget--message--text"></span><i id="info" class="close fas fa-window-close"></i>
             </div>
             <div class="app__widget--message exclamation">
                 <i class="fas fa-exclamation-circle"></i> <span class="app__widget--message--text">Pamiętaj, by dodać plan!</span><i id="exclamation" class="close fas fa-window-close"></i>
@@ -170,10 +170,13 @@
 
 
 
-    <section class="new_plan hidden">
+    <form id="plan-form" class="new_plan hidden">
         <div class="head_new_plan container_new_plan">
             <p>NOWY PLAN</p>
-            <button>Zapisz i zamknij</button>
+            <div>
+                <button id="cancel-plan" type="button">Anuluj</button>
+                <button id="save-plan" type="submit">Zapisz i zamknij</button>
+            </div>
         </div>
         <div class="new_plan_description">
             <div>
@@ -202,51 +205,51 @@
             <div class="mon">
                 <p>PONIEDZIAŁEK</p>
                 <div class="slct">
-                    <select>
+                    <select name="mon-1">
+                        <option value="burger">burger</option>
+                        <option value="zupa">zupa</option>
+                    </select>
+                    <select name="mon-2">
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
-                    </select>
-                    <select>
-                        <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                 </div>
             </div>
 
-            <div class="thus">
+            <div class="tues">
                 <p>WTOREK</p>
                 <div class="slct">
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                 </div>
             </div>
@@ -256,23 +259,23 @@
                 <div class="slct">
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                 </div>
             </div>
@@ -282,23 +285,23 @@
                 <div class="slct">
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                 </div>
             </div>
@@ -308,23 +311,23 @@
                 <div class="slct">
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        \<option>burger</option>
+                        <option>zupa</option>
                     </select>
                 </div>
             </div>
@@ -334,23 +337,23 @@
                 <div class="slct">
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                 </div>
             </div>
@@ -360,28 +363,28 @@
                 <div class="slct">
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                     <select>
                         <option>burger</option>
-                        <option>burger</option>
+                        <option>zupa</option>
                     </select>
                 </div>
             </div>
         </div>
-    </section>
+    </form>
 
 
 

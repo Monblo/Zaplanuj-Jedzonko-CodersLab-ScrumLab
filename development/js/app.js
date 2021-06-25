@@ -76,14 +76,14 @@ const addToList = (e) => {
 //Usuwanie ostrzeżeń dotyczących długości danych wprowadzonych w formularzu
 document.querySelectorAll('.warning').forEach(el => el.addEventListener('click', e => e.target.classList.add('hidden')));
 //Ukrywanie formularza
-const hideRecipeForm = () => form.form.classList.add('hidden');
+const hideForm = (form) => form.classList.add('hidden');
 //Dodawanie elementów do list
 form.addInstruction.addEventListener('click', addToList);
 form.addIngredient.addEventListener('click', addToList);
 //Anulowanie wypełniania formularza
 form.cancel.addEventListener('click', () => {
     form.form.reset;
-    hideRecipeForm();
+    hideForm(form.form);
 });
 //Zapisanie przepisu
 const showWarning = (id) => {
@@ -116,20 +116,25 @@ const save = (e) => {
         recipes.push(recipe);
         localStorage.setItem('localRecipes', JSON.stringify(recipes));
         console.log(JSON.parse(localStorage.getItem('localRecipes')));
-        hideRecipeForm();
+        hideForm(form.form);
         counterUpdate();
     }
 }
 //Uaktualnienie licznika przepisów
 const counterUpdate = () => {
     const l = JSON.parse(localStorage.getItem('localRecipes'));
-    document.getElementById('recipes-lenght').innerText = l.length;
+    if(l) {
+        document.querySelector('.app__widget--message--text').innerText = `Nieźle Ci idzie tworzenie przepisów, masz ich już ${l.length}!`;
+    } else {
+        document.querySelector('.app__widget--message--text').innerText = 'Dodaj jakiś przepis!';
+    }
 }
 form.save.addEventListener('click', save);
 
 window.addEventListener('DOMContentLoaded', () => counterUpdate());
 
 document.getElementById('widget-add-recipe').addEventListener('click', () => form.form.classList.remove('hidden'));
+document.getElementById('widget-add-plan').addEventListener('click', () => planForm.form.classList.remove('hidden'));
 
 
 //Dodanie imienia dla odwiedzającego po raz pierwszy
@@ -175,13 +180,104 @@ const previous = document.querySelector(".button__previous");
 next.style.cursor = 'pointer';
 previous.style.cursor = 'pointer';
 
-Date.prototype.getWeekNumber = function(){
+Date.prototype.getWeekNumber = function () {
     let d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
     let dayNum = d.getUTCDay() || 7;
     d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-    let yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
-    return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
+    let yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
 };
 
 
 weekNumber.innerHTML = `${new Date().getWeekNumber()}`;
+
+//Tworzenie nowego planu
+const planForm = {
+    form: document.getElementById('plan-form'),
+    cancel: document.getElementById('cancel-plan'),
+    save: document.getElementById('save-plan'),
+    name: document.getElementById('plan-name'),
+    description: document.getElementById('plan-description'),
+    week: document.getElementById('week-number'),
+    mondayInputs: document.querySelectorAll('.mon select'),
+    tuesdayInputs: document.querySelectorAll('.tues select'),
+    wednesdayInputs: document.querySelectorAll('.wed select'),
+    thursdayInputs: document.querySelectorAll('.thur select'),
+    fridayInputs: document.querySelectorAll('.fri select'),
+    saturdayInputs: document.querySelectorAll('.sat select'),
+    sundayInputs: document.querySelectorAll('.sun select'),
+}
+
+//Dodawanie przepisów do opcji wybory planu
+
+const addOptions = () => {
+    const recipes = JSON.parse(localStorage.getItem('localRecipes'));
+    const selects = document.querySelectorAll('select');
+    if (!recipes) {
+        console.warn('Trzeba dodać jakiś przepis');
+    } else {
+        recipes.forEach(recipe => {
+            const option = document.createElement('option');
+            option.setAttribute('value', JSON.stringify(recipe));
+            option.innerText = recipe.name;
+            selects.forEach(select => {
+                select.appendChild(option);
+            });
+        });
+    }
+}
+
+addOptions();
+
+//Zapis planu
+const savePlan = (e) => {
+    e.preventDefault();
+    if (planForm.name.value.length > 50 || planForm.name.value.length < 2) {
+        // showWarning('recipe-name-warning');
+        console.warn('Wymagana długość nazwy między 3 a 50 znaków');
+    } else if (planForm.description.value.length > 360 || planForm.description.value.length < 10) {
+        // showWarning('recipe-description-warning');
+        console.warn('Wymagana długość opisu między 10 a 360 znaków');
+    } else if (planForm.week < 1 || planForm.week > 52) {
+        console.warn('Wymagana wartość tygodnia między 1 a 52');
+    } else {
+        let plans = JSON.parse(localStorage.getItem('localPlans'));
+        if (!plans) {
+            plans = [];
+        }
+        const monday = [];
+        planForm.mondayInputs.forEach(el => monday.push(el.value));
+        const tuesday = [];
+        planForm.tuesdayInputs.forEach(el => tuesday.push(el.value));
+        const wednesday = [];
+        planForm.wednesdayInputs.forEach(el => wednesday.push(el.value));
+        const thursday = [];
+        planForm.thursdayInputs.forEach(el => thursday.push(el.value));
+        const friday = [];
+        planForm.thursdayInputs.forEach(el => friday.push(el.value));
+        const saturday = [];
+        planForm.saturdayInputs.forEach(el => saturday.push(el.value));
+        const sunday = [];
+        planForm.sundayInputs.forEach(el => sunday.push(el.value));
+        const plan = {
+            name: planForm.name.value,
+            description: planForm.description.value,
+            week: parseInt(planForm.week.value),
+            monday: monday,
+            tuesday: tuesday,
+            wednesday: wednesday,
+            thursday: thursday,
+            friday: friday,
+            saturday: saturday,
+            sunday: sunday
+        }
+        plans.push(plan);
+        localStorage.setItem('localPlans', JSON.stringify(plans));
+        console.log(JSON.parse(localStorage.getItem('localPlans')));
+        hideForm(planForm.form);
+    }
+}
+
+//Anulowanie tworzenia nowego planu
+planForm.cancel.addEventListener('click', () => hideForm(planForm.form));
+planForm.save.addEventListener('click', savePlan);
