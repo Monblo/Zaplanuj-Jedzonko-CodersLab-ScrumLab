@@ -115,7 +115,6 @@ const save = (e) => {
         }
         recipes.push(recipe);
         localStorage.setItem('localRecipes', JSON.stringify(recipes));
-        console.log(JSON.parse(localStorage.getItem('localRecipes')));
         hideRecipeForm();
         counterUpdate();
     }
