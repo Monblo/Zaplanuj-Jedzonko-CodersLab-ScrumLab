@@ -1,0 +1,102 @@
+.app__recipe{
+  width: 85%;
+  background-image: url("../assets/background.png");
+  position: relative;
+}
+
+.recipe__list {
+  position: absolute;
+  background-color: $color-background;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: calc(100vh - 13rem);
+  width: 85%;
+  border: 2px dotted $color-table;
+
+  &--title {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 20px;
+    border-bottom: 1px solid $color-table;
+
+    h2 {
+      color: $color-accent;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    i {
+      color: $color-success;
+      cursor: pointer;
+    }
+  }
+
+  hr {
+    border: none;
+  }
+
+  &--table {
+    text-align: left;
+    color: $color-table;
+    width: 90%;
+    margin: 0 auto;
+
+    .col1 {
+      width: 10%;
+    }
+
+    .col2 {
+      width: 25%;
+    }
+
+    .col3 {
+      width: 55%;
+    }
+
+    .col4 {
+      width: 10%;
+    }
+
+    th, td {
+      padding: 10px 0;
+      font-weight: 700;
+    }
+
+    th {
+      color: $color-nav;
+      font-size: 16px;
+      border-top: 1px solid $color-table;
+      border-bottom: 1px solid $color-table;
+    }
+
+    tbody {
+      //position: absolute;
+      width: 90%;
+      height: 70%;
+      //-----------scroll który trzeba poprawić -------------
+      //overflow-y: auto;
+
+
+      td {
+        padding: 10px 0;
+        border-bottom: 1px solid $color-table;
+      }
+
+      .recipe__edit {
+        color: $color-warning;
+        cursor: pointer;
+      }
+
+      .recipe__remove {
+        color: $color-bin;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+}
