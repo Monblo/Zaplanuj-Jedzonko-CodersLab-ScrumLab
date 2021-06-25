@@ -35,7 +35,6 @@ const form = {
     ingredientsList: document.getElementById('ingredients-list'),
 }
 //Dodanie składnika lub instrukcji
-
 let editedElem = null;
 const addToListFinish = (edit, remove, input, placeholder) => {
     editListElement(edit, input);
@@ -114,7 +113,6 @@ const save = (e) => {
             instructions: inst,
             ingredients: ingr
         }
-
         recipes.push(recipe);
         localStorage.setItem('localRecipes', JSON.stringify(recipes));
         console.log(JSON.parse(localStorage.getItem('localRecipes')));
@@ -157,6 +155,7 @@ const deleteListElement = (selector) => {
     document.querySelectorAll(selector).forEach(el => el.addEventListener('click', e => e.target.parentElement.remove()));
 }
 
+
 //Edytowanie elementów listy
 const editListElement = (selector, input) => {
     document.querySelectorAll(selector).forEach((element) => {
@@ -167,3 +166,43 @@ const editListElement = (selector, input) => {
         });
     });
 }
+
+//-------------wyświetalnie przepisów -----------
+const allRecipesContainer = document.getElementById("allRecipes"); //tbody tablicy
+
+function renderAllRecipes() {
+    allRecipesContainer.innerHTML = "";
+    const allRecipes = JSON.parse(localStorage.getItem("recipes")); //konwersja danych
+    let i=1;
+
+    allRecipes.forEach(function() {
+            const newRow = document.createElement("tr");
+
+            const newTdId = document.createElement("td"); //dodanie ID
+            newTdId.innerHTML = toString(i);
+            newRow.appendChild(newTdId);
+            i++;
+
+            const newTdName = document.createElement("td"); //dodanie NAME
+            newTdName.innerHTML=this.name;
+            newRow.appendChild(newTdName);
+
+            const newTdDescription = document.createElement("td"); //dodanie DESCRIPTION
+            newTdDescription.innerHTML=this.description;
+            newRow.appendChild(newTdDescription);
+
+            const newTdIcons = document.createElement("td"); //dodanie ikon
+            newRow.appendChild(newTdIcons);
+            const newIconEdit = document.createElement("i");
+            newIconEdit.classList.add("fas fa-edit recipe__edit");
+            newTdIcons.appendChild(newIconEdit);
+            const newIconRemove = document.createElement("i");
+            newIconRemove.classList.add("far fa-trash-alt recipe__remove")
+            newTdIcons.appendChild(newIconRemove);
+
+        allRecipesContainer.appendChild(newRow); //dodanie ROW do TBODY
+    });
+}
+
+renderAllRecipes();
+
