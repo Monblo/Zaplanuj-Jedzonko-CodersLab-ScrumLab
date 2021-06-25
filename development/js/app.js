@@ -113,10 +113,13 @@ const save = (e) => {
             instructions: inst,
             ingredients: ingr
         }
-        recipes.push(recipe);
+        if(gup('recipeId')) {
+            recipes[gup('recipeId')] = recipe;
+        } else {
+            recipes.push(recipe);
+        }
         localStorage.setItem('localRecipes', JSON.stringify(recipes));
-        hideRecipeForm();
-        counterUpdate();
+        window.location.href = `http://localhost:3000/app.html`;
     }
 }
 //Uaktualnienie licznika przepisów
@@ -184,3 +187,32 @@ Date.prototype.getWeekNumber = function(){
 
 
 weekNumber.innerHTML = `${new Date().getWeekNumber()}`;
+
+function gup(name, url) {
+    if (!url) url = location.href;
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(url);
+    return results == null ? null : results[1];
+}
+
+if(gup('recipeId')) {
+    form.form.classList.remove('hidden');
+    const allRecipes = JSON.parse(localStorage.getItem("localRecipes")); //konwersja danych
+    form.name.value = allRecipes[gup('recipeId')].name;
+    form.description.value = allRecipes[gup('recipeId')].description;
+    allRecipes[gup('recipeId')].instructions.forEach(el => {
+        const listElement = document.createElement('li');
+        listElement.innerHTML = el + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
+        form.instructionsList.appendChild(listElement);
+        addToListFinish('#instructions-list .edit-list-item', '#instructions-list .remove-list-item', 'recipe-instruction', 'Jaki jest następny krok?');
+    });
+    allRecipes[gup('recipeId')].ingredients.forEach(el => {
+        const listElement = document.createElement('li');
+        listElement.innerHTML = el + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
+        form.ingredientsList.appendChild(listElement);
+        addToListFinish('#ingredients-list .edit-list-item', '#ingredients-list .remove-list-item', 'recipe-ingredients', 'Jaki jest następny składnik?');
+    });
+
+}

@@ -45,3 +45,12 @@ const deleteElement = () => {
 }
 
 deleteElement();
+
+const editElement = () => {
+    document.querySelectorAll('.recipe__edit').forEach(el => el.addEventListener('click', e => {
+        const i = e.target.parentElement.parentElement.firstChild.innerText - 1;
+        window.location.href = `http://localhost:3000/app.html?recipeId=${i}`;
+    }));
+}
+
+editElement();
