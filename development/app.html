@@ -62,7 +62,7 @@
         </div>
         <!--        trzeba poprawić pozycję tabeli w gridzie względem widgetów-->
         <div class="app__calendar">
-            <h2>Twój plan na {nr_tygodnia} tydzień:</h2>
+            <h2>Twój plan na <span id="weekNumber"></span> tydzień:</h2>
             <table class="app__calendar_table">
                 <thead>
                 <tr class="table__days">
@@ -170,8 +170,7 @@
 
 
 
-// Przy robieniu logiki trzeba nadać class="hidden"
-    <section class="new_plan">
+    <section class="new_plan hidden">
         <div class="head_new_plan container_new_plan">
             <p>NOWY PLAN</p>
             <button>Zapisz i zamknij</button>

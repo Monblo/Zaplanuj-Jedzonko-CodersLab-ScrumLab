@@ -166,3 +166,22 @@ const editListElement = (selector, input) => {
         });
     });
 }
+
+//Wyświetla numer aktualnego tygodnia
+const weekNumber = document.getElementById("weekNumber");
+const next = document.querySelector(".button__next");
+const previous = document.querySelector(".button__previous");
+
+next.style.cursor = 'pointer';
+previous.style.cursor = 'pointer';
+
+Date.prototype.getWeekNumber = function(){
+    let d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+    let dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    let yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
+};
+
+
+weekNumber.innerHTML = `${new Date().getWeekNumber()}`;
