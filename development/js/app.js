@@ -17,3 +17,5 @@ class ItemToHide {
 //construct elements to hide, then add listener
 const widgetMessages = widgetMessagesList.map(el => new ItemToHide(el));
 widgetMessages.forEach(el => el.addListener());
+
+
