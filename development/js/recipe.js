@@ -4,9 +4,8 @@ const allRecipesContainer = document.getElementById("allRecipes"); //tbody tabli
 function renderAllRecipes() {
     allRecipesContainer.innerHTML = "";
     const allRecipes = JSON.parse(localStorage.getItem("localRecipes")); //konwersja danych
-    let i=1;
 
-    allRecipes.forEach(function(el, index) {
+    allRecipes.forEach(function (el, index) {
         const newRow = document.createElement("tr");
 
         const newTdId = document.createElement("td"); //dodanie ID
@@ -14,11 +13,11 @@ function renderAllRecipes() {
         newRow.appendChild(newTdId);
 
         const newTdName = document.createElement("td"); //dodanie NAME
-        newTdName.innerHTML=el.name;
+        newTdName.innerHTML = el.name;
         newRow.appendChild(newTdName);
 
         const newTdDescription = document.createElement("td"); //dodanie DESCRIPTION
-        newTdDescription.innerHTML=el.description;
+        newTdDescription.innerHTML = el.description;
         newRow.appendChild(newTdDescription);
 
         const newTdIcons = document.createElement("td"); //dodanie ikon
@@ -36,3 +35,22 @@ function renderAllRecipes() {
 
 renderAllRecipes();
 
+const deleteElement = () => {
+    document.querySelectorAll('.recipe__remove').forEach(el => el.addEventListener('click', e => {
+        const allRecipes = JSON.parse(localStorage.getItem("localRecipes")); //konwersja danych
+        const newRecipes = allRecipes.filter((el, i) => i !== e.target.parentElement.parentElement.firstChild.innerText - 1);
+        localStorage.setItem('localRecipes', JSON.stringify(newRecipes));
+        renderAllRecipes();
+    }));
+}
+
+deleteElement();
+
+const editElement = () => {
+    document.querySelectorAll('.recipe__edit').forEach(el => el.addEventListener('click', e => {
+        const i = e.target.parentElement.parentElement.firstChild.innerText - 1;
+        window.location.href = `http://localhost:3000/app.html?recipeId=${i}`;
+    }));
+}
+
+editElement();
