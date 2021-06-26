@@ -57,4 +57,4 @@ editElement();
 
 document.querySelector('.recipe__list--title .fa-plus-square').addEventListener('click', () => {
     window.location.href = `http://localhost:3000/app.html?recipeId=new`;
-})
+});

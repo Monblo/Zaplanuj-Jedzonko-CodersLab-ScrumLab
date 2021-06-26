@@ -351,3 +351,26 @@ if (planForm.week == weekNumber.innerHTML) {
 
     });
 }
+
+if (gup('planId')) {
+    if (gup('planId') === 'new') {
+        planForm.form.classList.remove('hidden');
+    } else {
+        planForm.form.classList.remove('hidden');
+        const allPlans = JSON.parse(localStorage.getItem("localPlans")); //konwersja danych
+        planForm.name.value = allPlans[gup('planId')].name;
+        planForm.description.value = allPlans[gup('planId')].description;
+        // allRecipes[gup('recipeId')].instructions.forEach(el => {
+        //     const listElement = document.createElement('li');
+        //     listElement.innerHTML = el + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
+        //     form.instructionsList.appendChild(listElement);
+        //     addToListFinish('#instructions-list .edit-list-item', '#instructions-list .remove-list-item', 'recipe-instruction', 'Jaki jest następny krok?');
+        // });
+        // allRecipes[gup('recipeId')].ingredients.forEach(el => {
+        //     const listElement = document.createElement('li');
+        //     listElement.innerHTML = el + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
+        //     form.ingredientsList.appendChild(listElement);
+        //     addToListFinish('#ingredients-list .edit-list-item', '#ingredients-list .remove-list-item', 'recipe-ingredients', 'Jaki jest następny składnik?');
+        // });
+    }
+}

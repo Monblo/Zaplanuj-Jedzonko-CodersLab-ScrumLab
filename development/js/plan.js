@@ -38,3 +38,27 @@ function renderAllPlans() {
 }
 
 renderAllPlans();
+
+const deleteElement = () => {
+    document.querySelectorAll('.plan__remove').forEach(el => el.addEventListener('click', e => {
+        const allPlans = JSON.parse(localStorage.getItem("localPlans")); //konwersja danych
+        const newPlans = allPlans.filter((el, i) => i !== e.target.parentElement.parentElement.firstChild.innerText - 1);
+        localStorage.setItem('localPlans', JSON.stringify(newPlans));
+        renderAllPlans();
+    }));
+}
+
+deleteElement();
+
+const editElement = () => {
+    document.querySelectorAll('.plan__edit').forEach(el => el.addEventListener('click', e => {
+        const i = e.target.parentElement.parentElement.firstChild.innerText - 1;
+        window.location.href = `http://localhost:3000/app.html?planId=${i}`;
+    }));
+}
+
+editElement();
+
+document.querySelector('.plan__list--title .fa-plus-square').addEventListener('click', () => {
+    window.location.href = `http://localhost:3000/app.html?planId=new`;
+});
