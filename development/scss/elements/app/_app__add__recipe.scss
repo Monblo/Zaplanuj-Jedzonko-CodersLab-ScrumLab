@@ -99,9 +99,10 @@
       font-size: 1.1rem;
     }
     ul, ol {
-      max-height: 20rem;
+      max-height: 15rem;
       margin-top: 2rem;
       overflow-y: auto;
+      width: 90%;
       li {
         margin-top: .5rem;
         line-height: 1.4rem;

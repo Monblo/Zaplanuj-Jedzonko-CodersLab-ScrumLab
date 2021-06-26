@@ -113,7 +113,7 @@ const save = (e) => {
             instructions: inst,
             ingredients: ingr
         }
-        if(gup('recipeId')) {
+        if (gup('recipeId')) {
             recipes[gup('recipeId')] = recipe;
         } else {
             recipes.push(recipe);
@@ -128,7 +128,7 @@ const save = (e) => {
 //Uaktualnienie licznika przepisów
 const counterUpdate = () => {
     const l = JSON.parse(localStorage.getItem('localRecipes'));
-    if(l) {
+    if (l) {
         document.querySelector('.app__widget--message--text').innerText = `Nieźle Ci idzie tworzenie przepisów, masz ich już ${l.length}!`;
     } else {
         document.querySelector('.app__widget--message--text').innerText = 'Dodaj jakiś przepis!';
@@ -176,8 +176,6 @@ const editListElement = (selector, input) => {
         });
     });
 }
-
-
 
 
 //Tworzenie nowego planu
@@ -299,39 +297,42 @@ function gup(name, url) {
     return results == null ? null : results[1];
 }
 
-if(gup('recipeId')) {
-    form.form.classList.remove('hidden');
-    const allRecipes = JSON.parse(localStorage.getItem("localRecipes")); //konwersja danych
-    form.name.value = allRecipes[gup('recipeId')].name;
-    form.description.value = allRecipes[gup('recipeId')].description;
-    allRecipes[gup('recipeId')].instructions.forEach(el => {
-        const listElement = document.createElement('li');
-        listElement.innerHTML = el + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
-        form.instructionsList.appendChild(listElement);
-        addToListFinish('#instructions-list .edit-list-item', '#instructions-list .remove-list-item', 'recipe-instruction', 'Jaki jest następny krok?');
-    });
-    allRecipes[gup('recipeId')].ingredients.forEach(el => {
-        const listElement = document.createElement('li');
-        listElement.innerHTML = el + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
-        form.ingredientsList.appendChild(listElement);
-        addToListFinish('#ingredients-list .edit-list-item', '#ingredients-list .remove-list-item', 'recipe-ingredients', 'Jaki jest następny składnik?');
-    });
-
+if (gup('recipeId')) {
+    if (gup('recipeId') === 'new') {
+        form.form.classList.remove('hidden');
+    } else {
+        form.form.classList.remove('hidden');
+        const allRecipes = JSON.parse(localStorage.getItem("localRecipes")); //konwersja danych
+        form.name.value = allRecipes[gup('recipeId')].name;
+        form.description.value = allRecipes[gup('recipeId')].description;
+        allRecipes[gup('recipeId')].instructions.forEach(el => {
+            const listElement = document.createElement('li');
+            listElement.innerHTML = el + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
+            form.instructionsList.appendChild(listElement);
+            addToListFinish('#instructions-list .edit-list-item', '#instructions-list .remove-list-item', 'recipe-instruction', 'Jaki jest następny krok?');
+        });
+        allRecipes[gup('recipeId')].ingredients.forEach(el => {
+            const listElement = document.createElement('li');
+            listElement.innerHTML = el + ' <i class="edit-list-item fas fa-edit"></i> <i class="remove-list-item fas fa-trash-alt"></i>';
+            form.ingredientsList.appendChild(listElement);
+            addToListFinish('#ingredients-list .edit-list-item', '#ingredients-list .remove-list-item', 'recipe-ingredients', 'Jaki jest następny składnik?');
+        });
+    }
 }
 
 //next i previous zmieniają numer tygodnia
 
-next.addEventListener('click', function (){
+next.addEventListener('click', function () {
     if (parseInt(weekNumber.innerHTML) < 52) {
         weekNumber.innerHTML = `${parseInt(weekNumber.innerHTML) + 1}`;
     }
 });
 
-previous.addEventListener('click', function (){
+previous.addEventListener('click', function () {
     if (parseInt(weekNumber.innerHTML) > 0) {
         weekNumber.innerHTML = `${parseInt(weekNumber.innerHTML) - 1}`;
     } else {
-        return;
+
     }
 });
 
@@ -345,8 +346,8 @@ const friday = document.querySelectorAll('.app__calendar_table tbody tr :nth-chi
 const saturday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(6)');
 const sunday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(7)');
 
-if (planForm.week == weekNumber.innerHTML){
-    planForm.mondayInputs.forEach(function (){
+if (planForm.week == weekNumber.innerHTML) {
+    planForm.mondayInputs.forEach(function () {
 
     });
 }
