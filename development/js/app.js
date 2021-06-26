@@ -172,24 +172,8 @@ const editListElement = (selector, input) => {
     });
 }
 
-//Wyświetla numer aktualnego tygodnia
-const weekNumber = document.getElementById("weekNumber");
-const next = document.querySelector(".button__next");
-const previous = document.querySelector(".button__previous");
-
-next.style.cursor = 'pointer';
-previous.style.cursor = 'pointer';
-
-Date.prototype.getWeekNumber = function () {
-    let d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
-    let dayNum = d.getUTCDay() || 7;
-    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-    let yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
-};
 
 
-weekNumber.innerHTML = `${new Date().getWeekNumber()}`;
 
 //Tworzenie nowego planu
 const planForm = {
@@ -281,3 +265,53 @@ const savePlan = (e) => {
 //Anulowanie tworzenia nowego planu
 planForm.cancel.addEventListener('click', () => hideForm(planForm.form));
 planForm.save.addEventListener('click', savePlan);
+
+//Wyświetla numer aktualnego tygodnia
+const weekNumber = document.getElementById("weekNumber");
+const next = document.querySelector(".button__next");
+const previous = document.querySelector(".button__previous");
+
+next.style.cursor = 'pointer';
+previous.style.cursor = 'pointer';
+
+Date.prototype.getWeekNumber = function () {
+    let d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+    let dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    let yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1) / 7)
+};
+
+weekNumber.innerHTML = `${new Date().getWeekNumber()}`;
+
+//next i previous zmieniają numer tygodnia
+
+next.addEventListener('click', function (){
+    if (parseInt(weekNumber.innerHTML) < 52) {
+        weekNumber.innerHTML = `${parseInt(weekNumber.innerHTML) + 1}`;
+    }
+});
+
+previous.addEventListener('click', function (){
+    if (parseInt(weekNumber.innerHTML) > 0) {
+        weekNumber.innerHTML = `${parseInt(weekNumber.innerHTML) - 1}`;
+    } else {
+        return;
+    }
+});
+
+//Wyświetlanie planu do tygodnia
+
+const monday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(1)');
+const thuseday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(2)');
+const wednesday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(3)');
+const thursday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(4)');
+const friday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(5)');
+const saturday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(6)');
+const sunday = document.querySelectorAll('.app__calendar_table tbody tr :nth-child(7)');
+
+if (planForm.week == weekNumber.innerHTML){
+    planForm.mondayInputs.forEach(function (){
+
+    });
+}
